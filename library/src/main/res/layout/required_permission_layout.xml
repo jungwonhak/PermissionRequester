@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_main"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:padding="@dimen/margin_default"
+    tools:ignore="UselessParent,ContentDescription,UselessLeaf,MissingConstraints,RtlSymmetry,Autofill,LabelFor">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/storage_icon_frame"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round_frame"
+            android:backgroundTint="@color/colorBlue">
+
+            <ImageView
+                android:id="@+id/iv_permission_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                tools:src="@drawable/ic_folder_black_24dp"
+                android:tint="@color/colorWhite"/>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_permission_name"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                tools:text="@string/read_file_permission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tv_permission_description"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="앱 내 데이터들을 저장하기 위해서\n해당 권한이 필요합니다."/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

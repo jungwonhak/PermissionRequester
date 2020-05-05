@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round_layout"
+    android:backgroundTint="@color/colorWhite"
+    tools:ignore="UselessLeaf,MissingConstraints,RtlSymmetry,Autofill,LabelFor">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/margin_twice"
+        android:paddingTop="@dimen/margin_default"
+        android:paddingEnd="@dimen/margin_twice"
+        android:paddingBottom="@dimen/margin_default">
+
+        <LinearLayout
+            android:id="@+id/il_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/margin_default">
+
+            <com.sungbin.permissionrequester.library.ui.RoundImageView
+                android:id="@+id/iv_app_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                tools:src="@drawable/android"
+                android:layout_gravity="center"
+                app:riv_radius="@dimen/margin_default" />
+
+            <LinearLayout
+                android:id="@+id/il_app_icon"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingEnd="@dimen/margin_default">
+
+                <TextView
+                    android:id="@+id/tv_app_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    tools:text="@string/app_name"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_app_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    tools:text="@string/description"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_app_name" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/v_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin_default"
+            android:background="@color/colorBlue"
+            app:layout_constraintTop_toBottomOf="@+id/il_title"
+            tools:layout_height="1dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_above="@id/tv_done"
+        android:layout_below="@id/cl_title"
+        android:layout_marginBottom="@dimen/margin_default">
+
+        <LinearLayout
+            android:id="@+id/ll_permissions_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_done"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/round_bottom_layout"
+        android:backgroundTint="@color/colorBlue"
+        android:gravity="center"
+        android:text="@string/ok"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp" />
+
+</RelativeLayout>
