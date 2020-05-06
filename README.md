@@ -47,6 +47,18 @@ PermissionRequester
     .create(1000)
 ```
 
+# Listener
+```kotlin
+.setOnDoneClickListener {
+    Log.d("TAG", "${it.text} clicked.")
+}
+`it` will return `TextView`. (DoneButton Layout)
+```
+
+# Override
+You can override `onRequestPermissionsResult` this.<br>
+[Example](https://github.com/sungbin5304/PermissionRequester/blob/master/app/src/main/java/com/sungbin/permissionrequester/MainActivity.kt#L56)
+
 # Customize view
 You can get dialog layout from `getDialogLayout(activity: Activity = this.activity!!)` method.<br>
 And you can set Customize view use `setDialogLayout(layout: LinearLayout)` method.<br>
@@ -81,3 +93,4 @@ getChoosePermissionLayout(activity: Activity = this.activity!!)
 create(code: Int)
 get(code: Int): AlertDialog
 ```
+`code` parameter in `create(code: Int)` and `get(code: Int)` methods means is permission [`RequestCode`](https://developer.android.com/training/permissions/requesting#make-the-request).
