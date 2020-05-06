@@ -60,9 +60,9 @@ You can override `onRequestPermissionsResult` this.<br><br>
 [[Override example]](https://github.com/sungbin5304/PermissionRequester/blob/master/app/src/main/java/com/sungbin/permissionrequester/MainActivity.kt#L56)
 
 # Customize view
-You can get view layout from `get~~~Layout(activity: Activity = this.activity!!)` method.<br><br>
-And you can set Customize view use `set~~~Layout(layout: LinearLayout)` method.<br><br>
-You should called  `set~~~Layout(layout: LinearLayout)` method before use `with(activity: Activty)`.<br><br>
+1. You can get view layout from `get~~~Layout(activity: Activity = this.activity!!)` method.<br><br>
+2. And you can set Customize view use `set~~~Layout(layout: LinearLayout)` method.<br><br>
+3. You should called  `set~~~Layout(layout: LinearLayout)` method before use `with(activity: Activty)`.<br><br>
 [[Customize view example]](https://github.com/sungbin5304/PermissionRequester/blob/master/app/src/main/java/com/sungbin/permissionrequester/MainActivity.kt#L20)
 
 # Warning
