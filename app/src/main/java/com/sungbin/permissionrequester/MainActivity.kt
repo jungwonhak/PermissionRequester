@@ -47,6 +47,9 @@ class MainActivity : AppCompatActivity() {
                     "need for get user location")
             )
             .setDoneButtonText("Ok")
+            .setOnDoneClickListener {
+                Log.d("TAG", "${it.text} clicked.")
+            }
             .create(1000)
     }
 

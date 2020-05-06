@@ -24,6 +24,25 @@ object PermissionRequester{
     private var customDialogLayout: LinearLayout? = null
     private var customRequiredPermissionLayout: LinearLayout? = null
     private var customChoosePermissionLayout: LinearLayout? = null
+    private var listener: OnDoneClickListener? = null
+
+    interface OnDoneClickListener {
+        fun onDoneClick(textView: TextView)
+    }
+
+    fun setOnDoneClickListener(listener: OnDoneClickListener?): PermissionRequester {
+        this.listener = listener
+        return this
+    }
+
+    fun setOnDoneClickListener(listener: (TextView) -> Unit): PermissionRequester {
+        this.listener = object : OnDoneClickListener {
+            override fun onDoneClick(textView: TextView) {
+                listener(textView)
+            }
+        }
+        return this
+    }
 
     fun with(activity: Activity): PermissionRequester {
         this.activity = activity
@@ -106,6 +125,8 @@ object PermissionRequester{
         dialog.setView(dialogLayout!!)
         val alert = dialog.create()
         dialogLayout!!.findViewById<TextView>(R.id.tv_done).setOnClickListener {
+            if(listener != null)
+                listener!!.onDoneClick(dialogLayout!!.findViewById(R.id.tv_done))
             val permissions = ArrayList<String>()
             for(permission in selectedPermissionItems){
                 for(element in getPermissionList(permission)){
