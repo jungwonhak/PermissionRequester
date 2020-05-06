@@ -69,6 +69,21 @@ You can override `onRequestPermissionsResult` this.<br><br>
 # Warning
 If you called `get~~~Layout(activity: Activity = this.activity!!)` method before use `with(activty: Activity)`, you should put parameter `activity` value.
 
+# Permissions
+You can create new permission `Permission(type: Int, name: String, description: String)`
+## Permissions List
+```
+CALENDAR
+CAMERA
+CONTACTS
+LOCATION
+MICROPHONE
+PHONE
+SENSORS
+SMS
+STORAGE
+```
+
 # View IDs.
 You can see View IDs from [this](https://github.com/sungbin5304/PermissionRequester/tree/master/library/src/main/res/layout) page.
 
