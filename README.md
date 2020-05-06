@@ -52,21 +52,21 @@ PermissionRequester
 .setOnDoneClickListener {
     Log.d("TAG", "${it.text} clicked.")
 }
-`it` will return `TextView`. (DoneButton Layout)
 ```
+`it` will return `TextView`. (DoneButton Layout)
 
 # Override
-You can override `onRequestPermissionsResult` this.<br>
-[Example](https://github.com/sungbin5304/PermissionRequester/blob/master/app/src/main/java/com/sungbin/permissionrequester/MainActivity.kt#L56)
+You can override `onRequestPermissionsResult` this.<br><br>
+[[Override example]](https://github.com/sungbin5304/PermissionRequester/blob/master/app/src/main/java/com/sungbin/permissionrequester/MainActivity.kt#L56)
 
 # Customize view
-You can get dialog layout from `getDialogLayout(activity: Activity = this.activity!!)` method.<br>
-And you can set Customize view use `setDialogLayout(layout: LinearLayout)` method.<br>
+You can get dialog layout from `getDialogLayout(activity: Activity = this.activity!!)` method.<br><br>
+And you can set Customize view use `setDialogLayout(layout: LinearLayout)` method.<br><br>
 You should called  `setDialogLayout(layout: LinearLayout)` method before use `with(activity: Activty)`.<br><br>
 [[Customize view example]](https://github.com/sungbin5304/PermissionRequester/blob/master/app/src/main/java/com/sungbin/permissionrequester/MainActivity.kt#L20)
 
 # Warning
-If you called `getDialogLayout(activity: Activity = this.activity!!)` method before use `with(activty: Activity)`, you should put parameter `activity` value.<br>
+If you called `getDialogLayout(activity: Activity = this.activity!!)` method before use `with(activty: Activity)`, you should put parameter `activity` value.<br><br>
 If you want set customize view, you should call `setDialogLayout(layout: LinearLayout)` method before use `with(activty: Activity)` method.
 
 # View IDs.
