@@ -70,18 +70,18 @@ You can override `onRequestPermissionsResult` this.<br><br>
 If you called `get~~~Layout(activity: Activity = this.activity!!)` method before use `with(activty: Activity)`, you should put parameter `activity` value.
 
 # Permissions
-You can create new permission `Permission(type: Int, name: String, description: String)`
+You can create new permission from `Permission(type: Int, name: String, description: String)` class.
 ## Permissions List
-```
-CALENDAR
-CAMERA
-CONTACTS
-LOCATION
-MICROPHONE
-PHONE
-SENSORS
-SMS
-STORAGE
+```kotlin
+PermissionType.CALENDAR
+PermissionType.CAMERA
+PermissionType.CONTACTS
+PermissionType.LOCATION
+PermissionType.MICROPHONE
+PermissionType.PHONE
+PermissionType.SENSORS
+PermissionType.SMS
+PermissionType.STORAGE
 ```
 
 # View IDs.
