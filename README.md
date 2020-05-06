@@ -84,7 +84,7 @@ PermissionType.SMS
 PermissionType.STORAGE
 ```
 
-# View IDs.
+# View IDs for customzing view.
 You can see View IDs from [this](https://github.com/sungbin5304/PermissionRequester/tree/master/library/src/main/res/layout) page.
 
 # All methods
