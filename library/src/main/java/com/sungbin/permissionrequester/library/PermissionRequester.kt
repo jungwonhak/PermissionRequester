@@ -5,7 +5,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.pm.PackageManager
-import android.util.Log
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.WindowManager
 import android.widget.*
@@ -15,15 +15,15 @@ import com.sungbin.permissionrequester.library.dto.Permission
 
 
 @SuppressLint("InflateParams")
-object PermissionRequester {
-
-    private const val PERMISSION_REQUEST_CODE = 1000
-
+object PermissionRequester{
     private var activity: Activity? = null
     private var requiredPermissionItems: ArrayList<Permission> = ArrayList()
     private var choosePermissionItems: ArrayList<Permission> = ArrayList()
     private var selectedPermissionItems: ArrayList<Permission> = ArrayList()
-    private var dialogLayout: RelativeLayout? = null
+    private var dialogLayout: LinearLayout? = null
+    private var customDialogLayout: LinearLayout? = null
+    private var customRequiredPermissionLayout: LinearLayout? = null
+    private var customChoosePermissionLayout: LinearLayout? = null
 
     fun with(activity: Activity): PermissionRequester {
         this.activity = activity
@@ -55,7 +55,20 @@ object PermissionRequester {
         return this
     }
 
-    fun create(){
+    fun setDoneButtonText(string: String): PermissionRequester{
+        dialogLayout!!.findViewById<TextView>(R.id.tv_done).text = string
+        return this
+    }
+
+    fun get(code: Int): AlertDialog{
+        return createLayout(code)
+    }
+
+    fun create(code: Int){
+        createLayout(code).show()
+    }
+
+    private fun createLayout(code: Int): AlertDialog{
         for(element in requiredPermissionItems){
             if(checkPermissionStatue(getPermissionList(element)) == PackageManager.PERMISSION_GRANTED) continue
             val layout = getRequiredPermissionLayout()
@@ -107,12 +120,13 @@ object PermissionRequester {
             ActivityCompat.requestPermissions(
                 activity!!,
                 permissions.toTypedArray(),
-                PERMISSION_REQUEST_CODE)
+                code
+            )
             alert.cancel()
         }
         alert.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
         alert.window!!.setBackgroundDrawableResource(android.R.color.transparent)
-        alert.show()
+        return alert
     }
 
     private fun getPermissionList(permission: Permission): Array<String>{
@@ -161,18 +175,39 @@ object PermissionRequester {
         }
     }
 
-    private fun getDialogLayout(): RelativeLayout {
-        return LayoutInflater.from(activity!!)
-            .inflate(R.layout.dialog_layout, null, false).findViewById(R.id.cl_main)
+    fun setDialogLayout(layout: LinearLayout): PermissionRequester{
+        customDialogLayout = layout
+        return this
     }
 
-    private fun getRequiredPermissionLayout(): LinearLayout {
-        return LayoutInflater.from(activity!!)
-            .inflate(R.layout.required_permission_layout, null, false).findViewById(R.id.ll_main)
+    fun setRequiredPermissionLayout(layout: LinearLayout): PermissionRequester{
+        customRequiredPermissionLayout = layout
+        return this
     }
 
-    private fun getChoosePermissionLayout(): LinearLayout {
-        return LayoutInflater.from(activity!!)
-            .inflate(R.layout.choose_permission_layout, null, false).findViewById(R.id.ll_main)
+    fun setChoosePermissionLayout(layout: LinearLayout): PermissionRequester{
+        customChoosePermissionLayout = layout
+        return this
+    }
+
+    fun getDialogLayout(activity: Activity = this.activity!!): LinearLayout {
+        return if(customDialogLayout == null) {
+            LayoutInflater.from(activity)
+                .inflate(R.layout.dialog_layout, null, false).findViewById(R.id.cl_main)
+        } else customDialogLayout!!
+    }
+
+    fun getRequiredPermissionLayout(activity: Activity = this.activity!!): LinearLayout {
+        return if(customRequiredPermissionLayout == null){
+            LayoutInflater.from(activity)
+                .inflate(R.layout.required_permission_layout, null, false).findViewById(R.id.ll_main)
+        } else customRequiredPermissionLayout!!
+    }
+
+    fun getChoosePermissionLayout(activity: Activity = this.activity!!): LinearLayout {
+        return if(customChoosePermissionLayout == null){
+            LayoutInflater.from(activity)
+                .inflate(R.layout.choose_permission_layout, null, false).findViewById(R.id.ll_main)
+        } else customChoosePermissionLayout!!
     }
 }

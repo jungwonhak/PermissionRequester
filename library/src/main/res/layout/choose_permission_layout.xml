@@ -26,7 +26,7 @@
 
         <FrameLayout
             android:layout_marginStart="@dimen/margin_default"
-            android:id="@+id/storage_icon_frame"
+            android:id="@+id/fl_icon_frame"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/round_frame"
