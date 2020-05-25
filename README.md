@@ -120,4 +120,4 @@ android {
 }
 ```
 
-# Happy Codding :)
+# Happy Coding :)
