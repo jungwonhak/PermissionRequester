@@ -109,3 +109,15 @@ create(code: Int)
 get(code: Int): AlertDialog
 ```
 `code` parameter in `create(code: Int)` and `get(code: Int)` methods means is permission [`RequestCode`](https://developer.android.com/training/permissions/requesting#make-the-request).
+
+# Gradle Error
+If you error at gradle `More than one file was found with OS independent path 'META-INF/library_release.kotlin_module'` this, add below code at your gradle.
+```gradle
+android {
+  packagingOptions {
+      exclude 'META-INF/library_release.kotlin_module'
+  }
+}
+```
+
+# Happy Codding :)
