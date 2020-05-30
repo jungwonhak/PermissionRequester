@@ -120,4 +120,7 @@ android {
 }
 ```
 
+# License
+License under the [APACHE 2.0](https://github.com/sungbin5304/PermissionRequester/blob/master/LICENSE)
+
 # Happy Coding :)
