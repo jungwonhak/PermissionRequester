@@ -2,6 +2,12 @@
 
 -----
 
+# Dirty Project, Don't use this!
+## Project for Practice Programming Skill
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 # Download [![](https://jitpack.io/v/sungbin5304/PermissionRequester.svg)](https://jitpack.io/#sungbin5304/PermissionRequester)
 ```gradle
 repositories {
