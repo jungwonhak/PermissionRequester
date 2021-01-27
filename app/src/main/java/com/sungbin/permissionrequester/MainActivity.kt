@@ -7,8 +7,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.sungbin.permissionrequester.library.PermissionRequester
-import com.sungbin.permissionrequester.library.dto.PermissionType
 import com.sungbin.permissionrequester.library.dto.Permission
+import com.sungbin.permissionrequester.library.dto.PermissionType
 import com.sungbin.permissionrequester.library.ui.RoundImageView
 
 class MainActivity : AppCompatActivity() {

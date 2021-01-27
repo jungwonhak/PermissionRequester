@@ -30,8 +30,9 @@ class RoundImageView : AppCompatImageView {
     constructor(
         context: Context?,
         attrs: AttributeSet?
-    ) : super(context, attrs){
-        val a = context!!.obtainStyledAttributes(attrs,
+    ) : super(context, attrs) {
+        val a = context!!.obtainStyledAttributes(
+            attrs,
             R.styleable.RoundImageView,
             0,
             0
@@ -55,10 +56,12 @@ class RoundImageView : AppCompatImageView {
     override fun draw(canvas: Canvas) {
         clipPath = Path()
         clipPath!!.reset()
-        if(bitmapRect == null)
-            bitmapRect = RectF(0f, 0f,
+        if (bitmapRect == null)
+            bitmapRect = RectF(
+                0f, 0f,
                 width.toFloat(),
-                height.toFloat())
+                height.toFloat()
+            )
         clipPath!!.addRoundRect(
             bitmapRect!!,
             this.radius.toFloat(),
